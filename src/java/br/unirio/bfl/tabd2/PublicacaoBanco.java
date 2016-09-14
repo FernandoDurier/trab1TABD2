@@ -11,21 +11,18 @@ import java.util.GregorianCalendar;
  *
  * @author Cliente
  */
-public class Publicacao {
-
-    private int id;
+public class PublicacaoBanco {
+    
+     private int id;
     private String titulo;
     private int paginaInicial;
     private int paginaFinal;
-    private GregorianCalendar dataPublicacao;
-  
-    public Publicacao(int id, String titulo, int paginaInicial, int paginaFinal, GregorianCalendar dataPublicacao) {
-        this.id = id;
-        this.titulo = titulo;
-        this.paginaInicial = paginaInicial;
-        this.paginaFinal = paginaFinal;
-        this.dataPublicacao = dataPublicacao;
+    private String DataDoBanco;
+
+    public PublicacaoBanco() {
     }
+    
+    
 
     public int getId() {
         return id;
@@ -59,11 +56,14 @@ public class Publicacao {
         this.paginaFinal = paginaFinal;
     }
 
-    public GregorianCalendar getDataPublicacao() {
-        return dataPublicacao;
+    public String getDataDoBanco() {
+        return DataDoBanco;
     }
 
-    public void setDataPublicacao(GregorianCalendar dataPublicacao) {
-        this.dataPublicacao = dataPublicacao;
+    public void setDataDoBanco(String DataDoBanco) {
+        this.DataDoBanco = DataDoBanco;
     }
+    
+    
+    
 }

@@ -30,10 +30,10 @@ public class PublicacaoDAO {
         }
     }
 
-    public List<Publicacao> consultarPublicacao(String valor) throws Exception {
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        List<Publicacao> listaPublicacao = new ArrayList<Publicacao>();
+    public List<PublicacaoBanco> consultarPublicacao(String valor) throws Exception {
+        PreparedStatement stmt ;
+        ResultSet rs;
+        List<PublicacaoBanco> listaPublicacao = new ArrayList<PublicacaoBanco>();
 
         try {
             abrirConexao();
@@ -43,14 +43,19 @@ public class PublicacaoDAO {
             stmt = conn.prepareStatement(sql);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                Publicacao pub = new Publicacao(rs.getInt("id"), rs.getString("titulo"), rs.getInt("paginainicial"),
-                        rs.getInt("paginafinal"), rs.getString("datapublicacao"));
+                PublicacaoBanco pub = new PublicacaoBanco();
+                
+                pub.setId(rs.getInt("id"));
+                pub.setTitulo(rs.getString("titulo"));
+                pub.setPaginaInicial(rs.getInt("paginainicial"));
+                pub.setPaginaFinal(rs.getInt("paginafinal"));
+                pub.setDataDoBanco(rs.getString("datapublicacao"));
+                
                 listaPublicacao.add(pub);
             }
         } finally {
             conn.close();
         }
-
         return listaPublicacao;
     }
 

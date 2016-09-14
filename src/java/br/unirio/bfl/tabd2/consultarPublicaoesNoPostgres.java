@@ -22,9 +22,8 @@ public class consultarPublicaoesNoPostgres {
      * This is a sample web service operation
      */
     @WebMethod(operationName = "search")
-    public List<Publicacao> consultarPublicacoesPorTitulo(@WebParam(name = "valor") String valor) throws Exception {
+    public List<PublicacaoBanco> consultarPublicacoesPorTitulo(@WebParam(name = "valor") String valor) throws Exception {
         PublicacaoDAO dao = new PublicacaoDAO();
-        List<Publicacao> listaPublicacao = dao.consultarPublicacao(valor);
-        return listaPublicacao;
+        return dao.consultarPublicacao(valor);
     }
 }
